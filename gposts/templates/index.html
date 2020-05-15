@@ -1,0 +1,24 @@
+<h1>GhostPost</h1>
+<a href='/addpost/'>Add a Boast or Rost Post!</a>
+</br>
+</br>
+<nav>
+    <a href='/boasts/'><button>See Boasts</button></a>
+    <a href='/roasts/'><button>See Roasts</button></a>
+</nav>
+<select name="forma" onchange="location = this.value;">
+    <option>Sort By</option>
+    <option value='/most_popular/'>Sort by Most Popular</a></option>
+    <option value='/least_popular/'>Sort by Least Popular</a></option>
+</select>
+</br>
+{% for post in data %}
+    {{ post.content }}
+    <ul>
+        <li><p>Submitted: {{ post.date }}</p></li>
+        <li><p>Vote Score: {{ post.votescore }}<p></li>
+        <li><p><a href='/upvote/{{ post.id }}/'><button>👍 {{ post.upvotes }}</button></a></p></li>
+        <li><p><a href='/downvote/{{ post.id }}/'><button>👎 {{ post.downvotes }}</button></a></p></li>
+    </ul>
+{% endfor %}
+</br>

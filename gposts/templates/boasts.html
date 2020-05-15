@@ -1,0 +1,9 @@
+<a href='/'>Home</a>
+<h3>Boasts</h3>
+
+{% for post in data %}
+    {{ post.content }}
+    <ul>
+        <li><p>Submitted: {{ post.date }}</p></li>
+    </ul>
+{% endfor %}
